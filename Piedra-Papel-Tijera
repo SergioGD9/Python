@@ -1,0 +1,30 @@
+import random
+
+def jugar_piedra_papel_tijera():
+    opciones = ["piedra", "papel", "tijera"]
+
+    while True:
+        # El jugador elige una opción
+        jugador = input("Elige piedra, papel o tijera (o 'salir' para terminar): ").lower()
+        if jugador == 'salir':
+            print("Gracias por jugar. ¡Hasta luego!")
+            break
+
+        # La maquina elige una opción al azar
+        maquina = random.choice(opciones)
+
+        print(f"Tu elección: {jugador}")
+        print(f"Elección de la maquina: {maquina}")
+
+        # Determinar el resultado
+        if jugador == maquina:
+            print("Empate. ¡Vuelve a intentarlo!")
+        elif (jugador == "piedra" and maquina == "tijera") or \
+             (jugador == "papel" and maquina == "piedra") or \
+             (jugador == "tijera" and maquina == "papel"):
+            print("¡Ganaste!")
+        else:
+            print("¡La maquina ganó!")
+
+if __name__ == "__main__":
+    jugar_piedra_papel_tijera()
